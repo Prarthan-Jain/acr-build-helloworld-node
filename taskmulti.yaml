@@ -1,13 +1,13 @@
 version: v1.0.0
 steps:
 # Build target image
-- build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f Dockerfile .
+- build: -t  containerregprarthan/hello-world:v2 -f Dockerfile .
 # Run image 
-- cmd: -t {{.Run.Registry}}/hello-world:{{.Run.ID}}
+- cmd: -t  containerregprarthan/hello-world:v2
   id: test
   detach: true
   ports: ["8080:80"]
 - cmd: docker stop test
 # Push image
 - push:
-  - {{.Run.Registry}}/hello-world:{{.Run.ID}}
+  -  containerregprarthan/hello-world:v2
